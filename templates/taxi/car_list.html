@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="col-sm-6">
+    <h1>Car List
+      <button style="float: right" onclick="window.location.href='{% url 'taxi:car-form' %}';" type="button"
+              class="btn btn-outline-success">
+        add new
+      </button>
+    </h1>
+    {% include "includes/cars.html" with cars=car_list %}
+  </div>
+{% endblock %}

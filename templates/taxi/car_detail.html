@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="col-sm-7">
+    <h1>Car: {{ car }}
+      <button onclick="window.location.href='{% url 'taxi:car-form' pk=car.id %}';" type="button"
+              class="btn btn-outline-warning">
+        Update car
+      </button>
+      <button onclick="window.location.href='{% url 'taxi:car-delete' pk=car.id %}';" type="button"
+              class="btn btn-outline-danger">
+        Delete car
+      </button>
+       {% if car in user.cars.all %}
+      <button onclick="window.location.href='{% url 'taxi:car-assign' pk=car.id operation="cancel" %}';" type="button" class="btn btn-outline-danger">
+       Delete me from this car
+      </button>
+    {% else %}
+      <button onclick="window.location.href='{% url 'taxi:car-assign' pk=car.id operation="assign" %}';" type="button" class="btn btn-outline-success">
+        Assign me to this car
+      </button>
+    {% endif %}
+    </h1>
+
+    <div><strong>Manufacturer: </strong> {{ car.manufacturer }}</div>
+    <div><strong>Model: </strong> {{ car }}</div>
+    <div><strong>Country: </strong> {{ car.manufacturer.country }}</div>
+    <div><strong>Amount of drivers:</strong> {{ car.drivers.count }}</div>
+    <br>
+
+    <h3>Drivers</h3>
+    {% include "includes/drivers.html" with drivers=car.drivers.all %}
+  </div>
+{% endblock %}

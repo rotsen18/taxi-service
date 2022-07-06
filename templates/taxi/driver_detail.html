@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-sm-6">
+  <h1>{{ driver.username }}
+  <button onclick="window.location.href='{% url 'taxi:driver-update' pk=driver.id %}';" type="button"
+            class="btn btn-outline-warning">
+      Update license number
+    </button>
+    <button onclick="window.location.href='{% url 'taxi:driver-delete' pk=driver.id %}';" type="button"
+            class="btn btn-outline-danger">
+      Delete user
+    </button>
+  </h1>
+
+  <div><strong>First name:</strong> {{ driver.first_name }}</div>
+  <div><strong>Last name:</strong> {{ driver.last_name }}</div>
+  <div><strong>License number:</strong> {{ driver.license_number }}</div>
+  <div><strong>Is staff:</strong> {{ driver.is_staff }}</div>
+  <p></p>
+
+  <h3>Cars:</h3>
+    {% include "includes/cars.html" with cars=driver.cars.all %}
+  </div>
+{% endblock %}

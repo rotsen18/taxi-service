@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <div class="col-sm-6">
+    <h2>Driver List
+      <button style="float: right" onclick="window.location.href='{% url 'taxi:driver-create' %}';" type="button"
+              class="btn btn-outline-success">
+        add new
+      </button>
+    </h2>
+    <br>
+    <form action="" method="GET">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-sm-5">{{ search_form|crispy }}</div>
+        <div class="col-sm-1"><input class="btn btn-outline-info" type="submit" value="find"></div>
+      </div>
+    </form>
+
+    {% include "includes/drivers.html" with drivers=driver_list %}
+  </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+<table class="table">
+  <tr>
+    <th>ID</th>
+    <th>Username</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>License number</th>
+  </tr>
+  {% for driver in drivers %}
+    <tr>
+      <td>{{ driver.id }}</td>
+      <td><a href="{{ driver.get_absolute_url }}">{{ driver.username }} {% if user == driver %}
+        (Me){% endif %}</a>
+      </td>
+      <td>{{ driver.first_name }}</td>
+      <td>{{ driver.last_name }}</td>
+      <td>{{ driver.license_number }}</td>
+    </tr>
+  {% empty %}
+    <p>There are no drivers in the service.</p>
+  {% endfor %}
+</table>

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete confirmation</h1>
+  <p>You are trying to delete manufacturer: <strong>{{ manufacturer }}</strong></p>
+  <h3>Are you sure?</h3>
+  <p>This process cannot be reversed</p>
+<div>
+  {% include "includes/confirmation_form.html" %}
+
+  <button onclick="window.location.href='{% url 'taxi:manufacturer-list' %}';" type="button"
+              class="btn btn-success">
+        No, back to manufacturer list
+      </button>
+</div>
+
+{% endblock %}

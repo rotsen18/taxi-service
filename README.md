@@ -5,6 +5,7 @@ Django project for managing taxi service
 ## Check it out!
 
 [project on heroku](link)
+
 username:test_user
 password:XfW9ADRupV5cZ9j
 
@@ -28,5 +29,5 @@ python manage.py runserver  # start Django project
 * Admin panel for advanced managing
 
 ## Demo
-![Website interface](img.png))
+![Website interface](img.png)
 ![img_1.png](img_1.png)

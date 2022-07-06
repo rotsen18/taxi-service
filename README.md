@@ -6,8 +6,8 @@ Django project for managing taxi service
 
 [project on heroku](https://taxi-service-1.herokuapp.com/)
 
-username:test_user
-password:XfW9ADRupV5cZ9j
+* username:test_user
+* password:XfW9ADRupV5cZ9j
 
 ## Installing / Getting started
 

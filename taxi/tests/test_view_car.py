@@ -49,43 +49,6 @@ class PrivateCarTests(TestCase):
         )
         self.assertTemplateUsed(response, "taxi/car_list.html")
 
-    # def test_create_car(self):
-    #     manufacturer = Manufacturer.objects.create(
-    #         name="test_name_1",
-    #         country="country_1"
-    #     )
-    #     car_data = {
-    #         "model": "test_model_name",
-    #         "manufacturer_id": manufacturer.id
-    #     }
-    #     self.client.post(reverse("taxi:car-form"), car_data, follow=True)
-    #     # Car.objects.create(**car_data)
-    #     print(Car.objects.all())
-    #     self.assertTrue(
-    #         Car.objects.filter(
-    #             model=car_data["model"],
-    #             manufacturer__id=car_data["manufacturer_id"]
-    #         ).exists()
-    #     )
-
-    # def test_update_car(self):
-    #     manufacturer = Manufacturer.objects.create(
-    #         name="test_name_1",
-    #         country="country_1"
-    #     )
-    #     old_data = {"model": "test_name_1", "manufacturer": manufacturer}
-    #     car = Car.objects.create(**old_data)
-    #
-    #     new_data = {"model": "changed_name_1", "manufacturer": manufacturer}
-    #     self.client.post(
-    #         reverse("taxi:car-form",
-    #                 args=[car.id]), new_data
-    #     )
-    #
-    #     updated_car = Car.objects.get(id=manufacturer.id)
-    #
-    #     self.assertEqual(new_data["model"], updated_car.model)
-
     def test_delete_car(self):
         manufacturer = Manufacturer.objects.create(
             name="test_name_1",

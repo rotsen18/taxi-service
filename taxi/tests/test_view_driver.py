@@ -32,6 +32,10 @@ class PrivateDriverTests(TestCase):
         self.client.force_login(self.user)
 
     def test_retrieve_driver(self):
+        Driver.objects.create(
+            username="test_username",
+            license_number="CCC12345"
+        )
         response = self.client.get(reverse("taxi:driver-list"))
         drivers = Driver.objects.all()
 

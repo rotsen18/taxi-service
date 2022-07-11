@@ -79,6 +79,7 @@ class PrivateCarTests(TestCase):
             name="test_name_1",
             country="country_1"
         )
+
         car = Car.objects.create(
             model="test_name_1",
             manufacturer=manufacturer
